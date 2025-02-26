@@ -1,48 +1,58 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/style.css">
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <title>Покупка билета</title>
-   
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <a href="poster.html" class="come-back">Назад</a>
-        <div class="pay-form">
-            <h2>Покупка билета</h2>
-            <div class="info">
-                <p><strong>Мероприятие:</strong> Концерт народной музыки</p>
-                <p><strong>Дата и время:</strong> 15 марта 2025, 19:00</p>
-                <p><strong>Цена билета:</strong> 500 руб.</p>
-            </div>
-            <form>
-                <div class="form-group">
-                    <label for="card-number">Электронная почта</label>
-                    <input type="text" id="card-number" placeholder="e-mail" maxlength="19">
-                </div>
-                <div class="form-group">
-                    <label for="card-number">Номер карты</label>
-                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19">
-                </div>
-                <div class="form-group">
-                    <label for="expiry">Срок действия</label>
-                    <input type="text" id="expiry" placeholder="MM/YY" maxlength="5">
-                </div>
-                <div class="form-group">
-                    <label for="cvv">CVV</label>
-                    <input type="number" id="cvv" placeholder="123" maxlength="3">
-                </div>
-                <button class="pay-button" type="submit">Оплатить</button>
-            </form>
+      <a href="poster.html" class="come-back">Назад</a>
+      <div class="pay-form">
+        <h2>Покупка билета</h2>
+        <div class="info">
+          <p><strong>Мероприятие:</strong> Концерт народной музыки</p>
+          <p><strong>Дата и время:</strong> 15 марта 2025, 19:00</p>
+          <p><strong>Цена билета:</strong> 500 руб.</p>
         </div>
+        <form>
+          <div class="form-group">
+            <label for="card-number">Электронная почта</label>
+            <input
+              type="text"
+              id="card-number"
+              placeholder="e-mail"
+              maxlength="19"
+            />
+          </div>
+          <div class="form-group">
+            <label for="card-number">Номер карты</label>
+            <input
+              type="text"
+              id="card-number"
+              placeholder="1234 5678 9012 3456"
+              maxlength="19"
+            />
+          </div>
+          <div class="form-group">
+            <label for="expiry">Срок действия</label>
+            <input type="text" id="expiry" placeholder="MM/YY" maxlength="5" />
+          </div>
+          <div class="form-group">
+            <label for="cvv">CVV</label>
+            <input type="number" id="cvv" placeholder="123" maxlength="3" />
+          </div>
+          <button class="pay-button" type="submit">Оплатить</button>
+        </form>
+      </div>
     </div>
-</body>
+  </body>
 </html>

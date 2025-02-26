@@ -1,6 +1,7 @@
 const ApiError = require('../error/ApiError')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const { Client } = require('../models/models');
 const {User} = require('../models/models')
 
 const generateJwt = (id, email, roleName) => {
@@ -12,8 +13,9 @@ const generateJwt = (id, email, roleName) => {
 }
 
 class UserController {
-    async registration(req, res, next) {
+    async registration(req, res, next) {    
         const {login, password, roleName} = req.body
+        console.log('reg')
         if (!login || !password) {
             return next(ApiError.badRequest('Некорректный email или password'))
         }
@@ -29,6 +31,8 @@ class UserController {
 
     async login(req, res, next) {
         const {login, password} = req.body
+        console.log('login')
+        
         const user = await User.findOne({where: {login}})
         if (!user) {
             return next(ApiError.internal('Пользователь не найден'))
@@ -44,6 +48,22 @@ class UserController {
     async check(req, res, next) {
         const token = generateJwt(req.user.id, req.user.login, req.user.roleName)
         return res.json({token})
+    }
+
+    async get(req, res) {
+        const clearToken = req.headers.authorization.replace('Bearer ', '');
+        const payload = jwt.decode(clearToken);
+        try {
+            const client = await User.findByPk(payload.id);
+            if (!client) return res.status(404).json({ message: 'Client not found' });
+            res.json({
+                id: client.id,
+                login: client.login,
+                roleName: client.roleName
+            });
+        } catch (err) {
+            res.status(500).json({ error: err.message });
+        }
     }
 }
 

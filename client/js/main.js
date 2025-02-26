@@ -1,3 +1,4 @@
+
 class Slider {
     constructor(slider, autoplay = true) {
         this.slider = slider;

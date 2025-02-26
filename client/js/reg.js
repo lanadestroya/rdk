@@ -7,17 +7,18 @@ document.getElementById("registerForm").addEventListener("submit", async functio
     };
 
     try {
-        const response = await fetch('/registration', {
+        const response = await fetch('http://localhost:5000/api/user/registration', {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData)
         });
-
+ 
         const data = await response.json();
         console.log(data);
         
         if (response.ok) {
             alert("Регистрация успешна!");
+            window.location.pathname = '/client/index.html'
         } else {
             alert("Ошибка: " + data.message);
         }
