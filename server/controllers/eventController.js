@@ -1,5 +1,7 @@
 const { Event } = require('../models/models');
 const ApiError = require('../error/ApiError');
+const uuid = require('uuid')
+const path = require('path');
 
 class EventController {
     async getAll(req, res) {
@@ -21,13 +23,16 @@ class EventController {
         }
     }
 
-    async create(req, res) {
+    async create(req, res, next) {
         try {
-            const { date, title, text, pic } = req.body;
-            const newEvent = await Event.create({ date, title, text, pic });
+            const { date, title, text } = req.body;
+            const {pic} = req.files
+            let fileName = uuid.v4() + ".jpg"
+            pic.mv(path.resolve(__dirname, '..', 'static', fileName))
+            const newEvent = await Event.create({ date, title, text, pic: fileName });
             res.status(201).json(newEvent);
         } catch (err) {
-            res.status(500).json({ error: err.message });
+            next(ApiError.badRequest(err.message))
         }
     }
 }

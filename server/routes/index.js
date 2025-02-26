@@ -6,7 +6,6 @@ const userRouter = require('./userRouter')
 const rolesRouter = require('./rolesRouter')
 const clientsRouter = require('./clientsRouter')
 
-
 router.use('/user', userRouter)
 router.use('/event', eventRouter)
 router.use('/roles', rolesRouter)
